@@ -80,7 +80,7 @@ while True:
     # desenho
     fundo.draw()
     janela.draw_text(str(placarE), x=janela.width/4, y=10, size=100, color=(255, 255, 255), font_name="monospace",bold = True, italic=False)
-    janela.draw_text(str(placarD), x=2.68 * (janela.width/4), y=10, size=100, color=(255, 255, 255), font_name="monospace", bold=True, italic=False)
+    janela.draw_text(str(placarD), x= 2.5 * (janela.width/4), y=10, size=100, color=(255, 255, 255), font_name="monospace", bold=True, italic=False)
     bola.draw()
     padD.draw()
     padE.draw()
