@@ -29,8 +29,8 @@ padE.y = janela.height / 2 - padE.height / 2
 padD.x = janela.width - padD.width - 5
 padD.y = janela.height / 2 - padD.height / 2
 
-velBolaX = 400
-velBolaY = 380
+velBolaX = 0
+velBolaY = 0
 
 velPadD = 280
 velPadE = 325
@@ -61,15 +61,13 @@ while True:
     # update
     bola.x = bola.x + velBolaX * janela.delta_time()  # velocidade fixa baseada no frame rate
 
-    # se a bolinha colidir com o pad
-    if padD.collided(bola):
+    # se a bolinha colidir com o pad, resolvendo o problema da patinação
+    if bola.collided(padD) and velBolaX > 0:
         contadorD += 1
         velBolaX *= -1
-        bola.x = janela.width - padD.width - (2 * bola.width)
-    if padE.collided(bola):
+    if bola.collided(padE) and velBolaX < 0:
         contadorE += 1
         velBolaX *= - 1
-        bola.x = padE.width + bola.width
 
     if (contadorD + contadorE) == 4:
         padD.height = padMenor.height
